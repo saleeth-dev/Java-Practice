@@ -174,6 +174,95 @@ class BankManagementSystem {
         System.out.println("Current balance: ₹" + balance);
     }
 }
+//StudentManagementSystem.java//
+
+import java.util.Scanner;
+
+class StudentManagementSystem {
+
+    static Scanner sc = new Scanner(System.in);
+    static String name;
+    static int roll;
+    static int m1, m2, m3;
+
+    public static void main(String[] args) {
+
+        int choice;
+
+        do {
+            System.out.println("\n===== Student Management System =====");
+            System.out.println("1. Add Student");
+            System.out.println("2. Display Student");
+            System.out.println("3. Calculate Result");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    addStudent();
+                    break;
+                case 2:
+                    displayStudent();
+                    break;
+                case 3:
+                    calculateResult();
+                    break;
+                case 4:
+                    System.out.println("Thank you! Program ended.");
+                    break;
+                default:
+                    System.out.println("Invalid choice! Try again.");
+            }
+
+        } while (choice != 4);
+    }
+
+    static void addStudent() {
+        System.out.print("Enter student name: ");
+        name = sc.next();
+
+        System.out.print("Enter roll number: ");
+        roll = sc.nextInt();
+
+        System.out.print("Enter marks 1: ");
+        m1 = sc.nextInt();
+
+        System.out.print("Enter marks 2: ");
+        m2 = sc.nextInt();
+
+        System.out.print("Enter marks 3: ");
+        m3 = sc.nextInt();
+
+        System.out.println("Student added successfully!");
+    }
+
+    static void displayStudent() {
+        System.out.println("\n--- Student Details ---");
+        System.out.println("Name: " + name);
+        System.out.println("Roll: " + roll);
+        System.out.println("Marks: " + m1 + ", " + m2 + ", " + m3);
+    }
+
+    static void calculateResult() {
+        int total = m1 + m2 + m3;
+        double avg = total / 3.0;
+
+        System.out.println("\nTotal Marks: " + total);
+        System.out.println("Average: " + avg);
+
+        if (avg >= 75)
+            System.out.println("Grade: A");
+        else if (avg >= 60)
+            System.out.println("Grade: B");
+        else if (avg >= 50)
+            System.out.println("Grade: C");
+        else
+            System.out.println("Grade: Fail");
+    }
+}
+
+
 
 
 

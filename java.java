@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 class SumTwoNumbers {
@@ -261,6 +262,101 @@ class StudentManagementSystem {
             System.out.println("Grade: Fail");
     }
 }
+//Day – Shopping Cart System mini project//
+
+import java.util.Scanner;
+
+class ShoppingCartSystem {
+
+    static Scanner sc = new Scanner(System.in);
+    static String[] items = new String[10];
+    static double[] prices = new double[10];
+    static int count = 0;
+
+    public static void main(String[] args) {
+        int choice;
+
+        do {
+            System.out.println("\n===== Shopping Cart Menu =====");
+            System.out.println("1. Add Item");
+            System.out.println("2. View Cart");
+            System.out.println("3. Remove Last Item");
+            System.out.println("4. Calculate Total Bill");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    addItem();
+                    break;
+                case 2:
+                    viewCart();
+                    break;
+                case 3:
+                    removeItem();
+                    break;
+                case 4:
+                    calculateTotal();
+                    break;
+                case 5:
+                    System.out.println("Thank you for shopping!");
+                    break;
+                default:
+                    System.out.println("Invalid choice! Try again.");
+            }
+        } while (choice != 5);
+    }
+
+    static void addItem() {
+        if (count >= 10) {
+            System.out.println("Cart is full!");
+            return;
+        }
+
+        System.out.print("Enter item name: ");
+        items[count] = sc.next();
+
+        System.out.print("Enter item price: ");
+        prices[count] = sc.nextDouble();
+
+        count++;
+        System.out.println("Item added successfully!");
+    }
+
+    static void viewCart() {
+        if (count == 0) {
+            System.out.println("Cart is empty.");
+            return;
+        }
+
+        System.out.println("\n--- Your Cart ---");
+        for (int i = 0; i < count; i++) {
+            System.out.println((i + 1) + ". " + items[i] + " - ₹" + prices[i]);
+        }
+    }
+
+    static void removeItem() {
+        if (count == 0) {
+            System.out.println("Cart is already empty.");
+            return;
+        }
+
+        count--;
+        System.out.println("Last item removed.");
+    }
+
+    static void calculateTotal() {
+        double total = 0;
+        for (int i = 0; i < count; i++) {
+            total += prices[i];
+        }
+        System.out.println("Total Bill Amount: ₹" + total);
+    }
+}
+
+
+
 
 
 

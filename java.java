@@ -355,6 +355,126 @@ class ShoppingCartSystem {
     }
 }
 
+//Day – Library Management System mini project//
+import java.util.Scanner;
+
+class LibraryManagementSystem {
+
+    static Scanner sc = new Scanner(System.in);
+    static String[] books = new String[20];
+    static boolean[] issued = new boolean[20];
+    static int count = 0;
+
+    public static void main(String[] args) {
+        int choice;
+
+        do {
+            System.out.println("\n===== Library Menu =====");
+            System.out.println("1. Add Book");
+            System.out.println("2. View Books");
+            System.out.println("3. Issue Book");
+            System.out.println("4. Return Book");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    addBook();
+                    break;
+                case 2:
+                    viewBooks();
+                    break;
+                case 3:
+                    issueBook();
+                    break;
+                case 4:
+                    returnBook();
+                    break;
+                case 5:
+                    System.out.println("Thank you for using Library System!");
+                    break;
+                default:
+                    System.out.println("Invalid choice! Try again.");
+            }
+
+        } while (choice != 5);
+    }
+
+    static void addBook() {
+        if (count >= 20) {
+            System.out.println("Library is full!");
+            return;
+        }
+
+        System.out.print("Enter book name: ");
+        books[count] = sc.next();
+
+        issued[count] = false;
+        count++;
+        System.out.println("Book added successfully!");
+    }
+
+    static void viewBooks() {
+        if (count == 0) {
+            System.out.println("No books available.");
+            return;
+        }
+
+        System.out.println("\n--- Book List ---");
+        for (int i = 0; i < count; i++) {
+            System.out.print((i + 1) + ". " + books[i]);
+            if (issued[i])
+                System.out.println(" (Issued)");
+            else
+                System.out.println(" (Available)");
+        }
+    }
+
+    static void issueBook() {
+        viewBooks();
+        if (count == 0) return;
+
+        System.out.print("Enter book number to issue: ");
+        int num = sc.nextInt();
+
+        if (num < 1 || num > count) {
+            System.out.println("Invalid book number.");
+            return;
+        }
+
+        if (issued[num - 1]) {
+            System.out.println("Book already issued.");
+        } else {
+            issued[num - 1] = true;
+            System.out.println("Book issued successfully!");
+        }
+    }
+
+    static void returnBook() {
+        viewBooks();
+        if (count == 0) return;
+
+        System.out.print("Enter book number to return: ");
+        int num = sc.nextInt();
+
+        if (num < 1 || num > count) {
+            System.out.println("Invalid book number.");
+            return;
+        }
+
+        if (!issued[num - 1]) {
+            System.out.println("This book was not issued.");
+        } else {
+            issued[num - 1] = false;
+            System.out.println("Book returned successfully!");
+        }
+    }
+}
+
+
+
+
 
 
 

@@ -472,6 +472,127 @@ class LibraryManagementSystem {
     }
 }
 
+//Day – ATM Machine Simulation mini project //
+import java.util.Scanner;
+
+class ATMSimulator {
+
+    static Scanner sc = new Scanner(System.in);
+    static int pin;
+    static double balance = 0;
+    static boolean isPinSet = false;
+
+    public static void main(String[] args) {
+
+        int choice;
+
+        do {
+            System.out.println("\n===== ATM MACHINE =====");
+            System.out.println("1. Set PIN");
+            System.out.println("2. Login");
+            System.out.println("3. Exit");
+            System.out.print("Enter choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    setPin();
+                    break;
+                case 2:
+                    login();
+                    break;
+                case 3:
+                    System.out.println("Thank you for using ATM!");
+                    break;
+                default:
+                    System.out.println("Invalid choice!");
+            }
+
+        } while (choice != 3);
+    }
+
+    static void setPin() {
+        System.out.print("Set your 4-digit PIN: ");
+        pin = sc.nextInt();
+        isPinSet = true;
+        System.out.println("PIN set successfully!");
+    }
+
+    static void login() {
+        if (!isPinSet) {
+            System.out.println("Please set PIN first.");
+            return;
+        }
+
+        System.out.print("Enter PIN: ");
+        int enteredPin = sc.nextInt();
+
+        if (enteredPin == pin) {
+            atmMenu();
+        } else {
+            System.out.println("Wrong PIN!");
+        }
+    }
+
+    static void atmMenu() {
+        int choice;
+
+        do {
+            System.out.println("\n--- ATM MENU ---");
+            System.out.println("1. Check Balance");
+            System.out.println("2. Deposit");
+            System.out.println("3. Withdraw");
+            System.out.println("4. Logout");
+            System.out.print("Enter choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    checkBalance();
+                    break;
+                case 2:
+                    deposit();
+                    break;
+                case 3:
+                    withdraw();
+                    break;
+                case 4:
+                    System.out.println("Logged out successfully.");
+                    break;
+                default:
+                    System.out.println("Invalid choice!");
+            }
+
+        } while (choice != 4);
+    }
+
+    static void checkBalance() {
+        System.out.println("Current Balance: ₹" + balance);
+    }
+
+    static void deposit() {
+        System.out.print("Enter amount to deposit: ");
+        double amount = sc.nextDouble();
+        balance += amount;
+        System.out.println("Deposit successful!");
+    }
+
+    static void withdraw() {
+        System.out.print("Enter amount to withdraw: ");
+        double amount = sc.nextDouble();
+
+        if (amount <= balance) {
+            balance -= amount;
+            System.out.println("Please collect your cash.");
+        } else {
+            System.out.println("Insufficient balance!");
+        }
+    }
+}
+
+
+
+
 
 
 

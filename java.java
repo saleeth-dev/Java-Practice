@@ -590,6 +590,121 @@ class ATMSimulator {
     }
 }
 
+//Day – Todo List Manager mini project//
+import java.util.Scanner;
+
+class TodoManager {
+
+    static Scanner sc = new Scanner(System.in);
+    static String[] tasks = new String[50];
+    static boolean[] completed = new boolean[50];
+    static int count = 0;
+
+    public static void main(String[] args) {
+        int choice;
+
+        do {
+            System.out.println("\n===== TO DO LIST MENU =====");
+            System.out.println("1. Add Task");
+            System.out.println("2. View Tasks");
+            System.out.println("3. Mark Completed");
+            System.out.println("4. Delete Task");
+            System.out.println("5. Exit");
+            System.out.print("Enter choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    addTask();
+                    break;
+                case 2:
+                    viewTasks();
+                    break;
+                case 3:
+                    markCompleted();
+                    break;
+                case 4:
+                    deleteTask();
+                    break;
+                case 5:
+                    System.out.println("Goodbye!");
+                    break;
+                default:
+                    System.out.println("Invalid choice!");
+            }
+
+        } while (choice != 5);
+    }
+
+    static void addTask() {
+        if (count >= 50) {
+            System.out.println("Task list is full!");
+            return;
+        }
+
+        System.out.print("Enter task: ");
+        sc.nextLine(); // clear buffer
+        tasks[count] = sc.nextLine();
+        completed[count] = false;
+        count++;
+
+        System.out.println("Task added!");
+    }
+
+    static void viewTasks() {
+        if (count == 0) {
+            System.out.println("No tasks available.");
+            return;
+        }
+
+        System.out.println("\n--- TASKS ---");
+        for (int i = 0; i < count; i++) {
+            System.out.print((i + 1) + ". " + tasks[i]);
+            if (completed[i])
+                System.out.println(" (Done)");
+            else
+                System.out.println(" (Pending)");
+        }
+    }
+
+    static void markCompleted() {
+        viewTasks();
+        if (count == 0) return;
+
+        System.out.print("Enter task number to mark done: ");
+        int num = sc.nextInt();
+
+        if (num >= 1 && num <= count) {
+            completed[num - 1] = true;
+            System.out.println("Task marked as completed!");
+        } else {
+            System.out.println("Invalid number.");
+        }
+    }
+
+    static void deleteTask() {
+        viewTasks();
+        if (count == 0) return;
+
+        System.out.print("Enter task number to delete: ");
+        int num = sc.nextInt();
+
+        if (num >= 1 && num <= count) {
+            for (int i = num - 1; i < count - 1; i++) {
+                tasks[i] = tasks[i + 1];
+                completed[i] = completed[i + 1];
+            }
+            count--;
+            System.out.println("Task deleted!");
+        } else {
+            System.out.println("Invalid number.");
+        }
+    }
+}
+
+
+
+
 
 
 

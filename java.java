@@ -702,6 +702,72 @@ class TodoManager {
     }
 }
 
+// if else statement by studeing java. 
+
+import java.util.Scanner;
+
+public class java {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String word;
+        double prize;
+        int quantity;
+        char currency = '$';
+        double total;
+
+        System.out.print("What item would you like to but? ");
+        word = sc.nextLine();
+
+        System.out.print("What is the price for each? ");
+        prize = sc.nextDouble();
+
+        System.out.print("How many would you like to buy? ");
+        quantity = sc.nextInt();
+
+        total = prize * quantity;
+        System.out.println(total + " " + currency);
+
+        String name;
+        int age;
+        boolean isStudent;
+
+        System.out.println("Enter your name: ");
+        name = sc.nextLine();
+
+        System.out.println("Enter your age:");
+        age = sc.nextInt();
+
+        System.out.println("Are you a student? (true/false):");
+        isStudent = sc.nextBoolean();
+
+        if (name.isEmpty()) {
+            System.out.println("You didn't enter your name!");
+        } else {
+            System.out.println("Hello " + name + "!");
+        }
+
+        if (age >= 65) {
+            System.out.println("You are a senior citizen.");
+        } else if (age >= 18) {
+            System.out.println("You are an adult.");    
+        } else if (age < 0) {
+            System.out.println("Invalid age entered.");
+        } else {
+            System.out.println("You are a minor.");
+        }
+        
+        if (isStudent) {
+            System.out.println("You are eligible for student discounts.");
+        } else {
+            System.out.println("You are not eligible for student discounts.");
+        }
+    }
+} 
+
+
+
+
 
 
 

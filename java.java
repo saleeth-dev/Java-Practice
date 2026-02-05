@@ -765,6 +765,111 @@ public class java {
     }
 } 
 
+// ExpenseTracker.java
+import java.util.Scanner;
+
+class ExpenseTracker {
+
+    static Scanner sc = new Scanner(System.in);
+    static String[] titles = new String[50];
+    static double[] amounts = new double[50];
+    static int count = 0;
+
+    public static void main(String[] args) {
+        int choice;
+
+        do {
+            System.out.println("\n===== EXPENSE TRACKER =====");
+            System.out.println("1. Add Expense");
+            System.out.println("2. View Expenses");
+            System.out.println("3. Total Spending");
+            System.out.println("4. Highest Expense");
+            System.out.println("5. Exit");
+            System.out.print("Enter choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    addExpense();
+                    break;
+                case 2:
+                    viewExpenses();
+                    break;
+                case 3:
+                    totalSpending();
+                    break;
+                case 4:
+                    highestExpense();
+                    break;
+                case 5:
+                    System.out.println("Goodbye!");
+                    break;
+                default:
+                    System.out.println("Invalid choice!");
+            }
+
+        } while (choice != 5);
+    }
+
+    static void addExpense() {
+        if (count >= 50) {
+            System.out.println("Expense list full!");
+            return;
+        }
+
+        sc.nextLine(); // clear buffer
+        System.out.print("Enter expense title: ");
+        titles[count] = sc.nextLine();
+
+        System.out.print("Enter amount: ");
+        amounts[count] = sc.nextDouble();
+
+        count++;
+        System.out.println("Expense added!");
+    }
+
+    static void viewExpenses() {
+        if (count == 0) {
+            System.out.println("No expenses recorded.");
+            return;
+        }
+
+        System.out.println("\n--- EXPENSE LIST ---");
+        for (int i = 0; i < count; i++) {
+            System.out.println((i + 1) + ". " + titles[i] + " - ₹" + amounts[i]);
+        }
+    }
+
+    static void totalSpending() {
+        double total = 0;
+        for (int i = 0; i < count; i++) {
+            total += amounts[i];
+        }
+        System.out.println("Total Spending: ₹" + total);
+    }
+
+    static void highestExpense() {
+        if (count == 0) {
+            System.out.println("No data available.");
+            return;
+        }
+
+        double max = amounts[0];
+        int index = 0;
+
+        for (int i = 1; i < count; i++) {
+            if (amounts[i] > max) {
+                max = amounts[i];
+                index = i;
+            }
+        }
+
+        System.out.println("Highest Expense: " + titles[index] + " - ₹" + max);
+    }
+}
+
+
+
 
 
 

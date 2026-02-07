@@ -887,6 +887,25 @@ class PasswordGenerator {
         System.out.println("Generated Password: " + password);
     }
 }
+// AgeCalculator.java
+import java.util.Scanner;
+
+class AgeCalculator {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter your birth year: ");
+        int birthYear = sc.nextInt();
+
+        int currentYear = 2026; // change if needed
+        int age = currentYear - birthYear;
+
+        System.out.println("Your age is: " + age + " years");
+    }
+}
+
+
 
 
 

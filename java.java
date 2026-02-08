@@ -904,6 +904,22 @@ class AgeCalculator {
         System.out.println("Your age is: " + age + " years");
     }
 }
+//DigitalClock.java
+import java.time.LocalTime;
+
+class DigitalClock {
+    public static void main(String[] args) throws InterruptedException {
+
+        while (true) {
+            LocalTime time = LocalTime.now();
+            System.out.println("Current Time: " + time);
+
+            Thread.sleep(1000); // wait 1 second
+        }
+    }
+}
+
+
 
 
 

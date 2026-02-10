@@ -919,6 +919,51 @@ class DigitalClock {
     }
 }
 
+import React, { useState } from "react";
+
+function App() {
+  const [task, setTask] = useState("");
+  const [tasks, setTasks] = useState([]);
+
+  const addTask = () => {
+    if (task !== "") {
+      setTasks([...tasks, task]);
+      setTask("");
+    }
+  };
+
+  const deleteTask = (index) => {
+    const newTasks = tasks.filter((_, i) => i !== index);
+    setTasks(newTasks);
+  };
+
+  return (
+    <div style={{ textAlign: "center", marginTop: "40px" }}>
+      <h2>To-Do List</h2>
+
+      <input
+        value={task}
+        onChange={(e) => setTask(e.target.value)}
+        placeholder="Enter task"
+      />
+      <button onClick={addTask}>Add</button>
+
+      <ul>
+        {tasks.map((t, i) => (
+          <li key={i}>
+            {t}
+            <button onClick={() => deleteTask(i)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
+
+
+
 
 
 

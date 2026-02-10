@@ -960,7 +960,28 @@ function App() {
   );
 }
 
+import React, { useState } from "react";
+
+function App() {
+  const [color, setColor] = useState("white");
+
+  const changeColor = () => {
+    const colors = ["red", "blue", "green", "yellow", "purple", "orange"];
+    const random = colors[Math.floor(Math.random() * colors.length)];
+    setColor(random);
+  };
+
+  return (
+    <div style={{ backgroundColor: color, height: "100vh", textAlign: "center" }}>
+      <h1>Color Changer App</h1>
+      <button onClick={changeColor}>Change Color</button>
+    </div>
+  );
+}
+
 export default App;
+
+
 
 
 

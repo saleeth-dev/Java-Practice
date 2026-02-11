@@ -1021,6 +1021,29 @@ function App() {
 
 export default App;
 
+import React, { useState } from "react";
+
+function App() {
+  const [name, setName] = useState("");
+
+  return (
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h1>Greeting App</h1>
+
+      <input
+        placeholder="Enter your name"
+        onChange={(e) => setName(e.target.value)}
+      />
+
+      <h2>Hello {name} 👋</h2>
+    </div>
+  );
+}
+
+export default App;
+
+
+
 
 
 

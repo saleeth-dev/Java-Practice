@@ -1042,6 +1042,50 @@ function App() {
 
 export default App;
 
+import React, { useState } from "react";
+
+function App() {
+  const [num1, setNum1] = useState("");
+  const [num2, setNum2] = useState("");
+  const [result, setResult] = useState(0);
+
+  const add = () => setResult(Number(num1) + Number(num2));
+  const sub = () => setResult(Number(num1) - Number(num2));
+  const mul = () => setResult(Number(num1) * Number(num2));
+  const div = () => setResult(Number(num1) / Number(num2));
+
+  return (
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h1>Calculator</h1>
+
+      <input
+        type="number"
+        placeholder="First number"
+        onChange={(e) => setNum1(e.target.value)}
+      />
+
+      <input
+        type="number"
+        placeholder="Second number"
+        onChange={(e) => setNum2(e.target.value)}
+      />
+
+      <br /><br />
+
+      <button onClick={add}>+</button>
+      <button onClick={sub}>-</button>
+      <button onClick={mul}>*</button>
+      <button onClick={div}>/</button>
+
+      <h2>Result: {result}</h2>
+    </div>
+  );
+}
+
+export default App;
+
+
+
 
 
 

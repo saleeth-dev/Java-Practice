@@ -1115,6 +1115,51 @@ function App() {
 
 export default App;
 
+import React, { useState } from "react";
+
+function App() {
+  const [note, setNote] = useState("");
+  const [notes, setNotes] = useState([]);
+
+  const addNote = () => {
+    if (note !== "") {
+      setNotes([...notes, note]);
+      setNote("");
+    }
+  };
+
+  const deleteNote = (index) => {
+    const newNotes = notes.filter((_, i) => i !== index);
+    setNotes(newNotes);
+  };
+
+  return (
+    <div style={{ textAlign: "center", marginTop: "40px" }}>
+      <h1>Notes App</h1>
+
+      <input
+        value={note}
+        onChange={(e) => setNote(e.target.value)}
+        placeholder="Enter note"
+      />
+
+      <button onClick={addNote}>Add</button>
+
+      <ul>
+        {notes.map((n, i) => (
+          <li key={i}>
+            {n}
+            <button onClick={() => deleteNote(i)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
+
+
 
 
 

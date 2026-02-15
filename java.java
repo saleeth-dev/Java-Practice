@@ -1159,6 +1159,36 @@ function App() {
 
 export default App;
 
+import React, { useState } from "react";
+
+function App() {
+  const [search, setSearch] = useState("");
+
+  const names = ["Saleeth", "John", "Aisha", "David", "Ravi", "Sara"];
+
+  const filtered = names.filter(name =>
+    name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  return (
+    <div style={{ textAlign: "center", marginTop: "40px" }}>
+      <h1>Search Filter App</h1>
+
+      <input
+        placeholder="Search name"
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
+      <ul>
+        {filtered.map((name, i) => (
+          <li key={i}>{name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
 
 
 

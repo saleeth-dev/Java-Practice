@@ -1248,6 +1248,39 @@ function App() {
 
 export default App;
 
+import React, { useState } from "react";
+
+function App() {
+  const [city, setCity] = useState("");
+  const [weather, setWeather] = useState("");
+
+  const checkWeather = () => {
+    if (city.toLowerCase() === "bangalore") setWeather("Sunny ☀️");
+    else if (city.toLowerCase() === "mumbai") setWeather("Rainy 🌧️");
+    else if (city.toLowerCase() === "delhi") setWeather("Cloudy ☁️");
+    else setWeather("Weather not found");
+  };
+
+  return (
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h1>Weather App</h1>
+
+      <input
+        placeholder="Enter City"
+        onChange={(e) => setCity(e.target.value)}
+      />
+
+      <button onClick={checkWeather}>Check</button>
+
+      <h2>{weather}</h2>
+    </div>
+  );
+}
+
+export default App;
+
+
+
 
 
 

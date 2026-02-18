@@ -1279,6 +1279,34 @@ function App() {
 
 export default App;
 
+import React, { useState } from "react";
+
+function App() {
+  const [dark, setDark] = useState(false);
+
+  const toggleTheme = () => setDark(!dark);
+
+  const style = {
+    backgroundColor: dark ? "#222" : "#fff",
+    color: dark ? "#fff" : "#000",
+    height: "100vh",
+    textAlign: "center",
+    paddingTop: "50px"
+  };
+
+  return (
+    <div style={style}>
+      <h1>{dark ? "Dark Mode" : "Light Mode"}</h1>
+      <button onClick={toggleTheme}>
+        Switch Theme
+      </button>
+    </div>
+  );
+}
+
+export default App;
+
+
 
 
 

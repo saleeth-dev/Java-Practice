@@ -1306,6 +1306,67 @@ function App() {
 
 export default App;
 
+// todays project practeice
+
+import java.util.Scanner;
+
+class VotingSystem {
+
+    static Scanner sc = new Scanner(System.in);
+    static int candidate1 = 0;
+    static int candidate2 = 0;
+    static int candidate3 = 0;
+
+    public static void main(String[] args) {
+
+        int choice;
+
+        do {
+            System.out.println("\n===== VOTING SYSTEM =====");
+            System.out.println("1. Vote for Candidate 1");
+            System.out.println("2. Vote for Candidate 2");
+            System.out.println("3. Vote for Candidate 3");
+            System.out.println("4. Show Results");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+            
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    candidate1++;
+                    System.out.println("Voted for Candidate 1");
+                    break;
+                case 2:
+                    candidate2++;
+                    System.out.println("Voted for Candidate 2");
+                    break;
+                case 3:
+                    candidate3++;
+                    System.out.println("Voted for Candidate 3");
+                    break;
+                case 4:
+                    showResults();
+                    break;
+                case 5:
+                    System.out.println("Voting ended.");
+                    break;
+                default:
+                    System.out.println("Invalid choice!");
+            }
+
+        } while (choice != 5);
+    }
+
+    static void showResults() {
+        System.out.println("\n--- Voting Results ---");
+        System.out.println("Candidate 1: " + candidate1 + " votes");
+        System.out.println("Candidate 2: " + candidate2 + " votes");
+        System.out.println("Candidate 3: " + candidate3 + " votes");
+    }
+}
+
+
 
 
 

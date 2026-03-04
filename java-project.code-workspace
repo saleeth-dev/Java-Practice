@@ -1,11 +1,79 @@
-{
-	"folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "../../../Documents/java.project-1"
-		}
-	],
-	"settings": {}
+import java.util.Scanner;
+
+class ContactManager {
+
+    static Scanner sc = new Scanner(System.in);
+    static String[] names = new String[50];
+    static String[] phones = new String[50];
+    static int count = 0;
+
+    public static void main(String[] args) {
+
+        int choice;
+
+        do {
+            System.out.println("\n=== CONTACT MANAGER ===");
+            System.out.println("1. Add Contact");
+            System.out.println("2. View Contacts");
+            System.out.println("3. Search Contact");
+            System.out.println("4. Exit");
+            System.out.print("Enter choice: ");
+
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    addContact();
+                    break;
+                case 2:
+                    viewContacts();
+                    break;
+                case 3:
+                    searchContact();
+                    break;
+                case 4:
+                    System.out.println("Goodbye!");
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+            }
+
+        } while (choice != 4);
+    }
+
+    static void addContact() {
+        System.out.print("Enter name: ");
+        names[count] = sc.next();
+
+        System.out.print("Enter phone: ");
+        phones[count] = sc.next();
+
+        count++;
+        System.out.println("Contact added!");
+    }
+
+    static void viewContacts() {
+        if (count == 0) {
+            System.out.println("No contacts found.");
+            return;
+        }
+
+        for (int i = 0; i < count; i++) {
+            System.out.println(names[i] + " - " + phones[i]);
+        }
+    }
+
+    static void searchContact() {
+        System.out.print("Enter name to search: ");
+        String search = sc.next();
+
+        for (int i = 0; i < count; i++) {
+            if (names[i].equalsIgnoreCase(search)) {
+                System.out.println("Found: " + names[i] + " - " + phones[i]);
+                return;
+            }
+        }
+
+        System.out.println("Contact not found.");
+    }
 }

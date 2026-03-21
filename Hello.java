@@ -20,7 +20,7 @@ class LoginSystem {
             String password = sc.next();
 
             if (username.equals(correctUsername) && password.equals(correctPassword)) {
-                System.out.println("Login Successful ✅");
+                System.out.println("Login Successful ");
                 break;
             } else {
                 attempts--;
@@ -29,7 +29,7 @@ class LoginSystem {
         }
 
         if (attempts == 0) {
-            System.out.println("Account Locked ❌");
+            System.out.println("Account Locked ");
         }
 
         sc.close();
@@ -238,7 +238,7 @@ class DiceGame {
         System.out.println("Computer rolled: " + computer);
 
         if (user > computer) {
-            System.out.println("You Win! 🎉");
+            System.out.println("You Win! ");
         } else if (user < computer) {
             System.out.println("Computer Wins!");
         } else {

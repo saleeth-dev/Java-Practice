@@ -1498,7 +1498,36 @@ class NumberPattern {
 }
 
 
+import java.util.Random;
+import java.util.Scanner;
 
+class DiceGame {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        Random rand = new Random();
+
+        System.out.println("Press Enter to roll the dice...");
+        sc.nextLine();
+
+        int user = rand.nextInt(6) + 1;
+        int computer = rand.nextInt(6) + 1;
+
+        System.out.println("You rolled: " + user);
+        System.out.println("Computer rolled: " + computer);
+
+        if (user > computer) {
+            System.out.println("You Win! 🎉");
+        } else if (user < computer) {
+            System.out.println("Computer Wins!");
+        } else {
+            System.out.println("It's a Draw!");
+        }
+
+        sc.close();
+    }
+}
 
 
 

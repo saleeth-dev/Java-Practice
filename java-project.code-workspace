@@ -153,3 +153,57 @@ class NumberPattern {
         sc.close();
     }
 }
+
+import java.io.*;
+import java.util.*;
+
+interface Shape {
+    double calculateArea();
+}
+
+interface Colorable {
+    String getColor();
+}
+
+class ColoredCircle implements Shape, Colorable {
+    double radius;
+    String color;
+
+    // Constructor
+    ColoredCircle(double radius, String color) {
+        this.radius = radius;
+        this.color = color;
+    }
+
+    // Implement Shape interface
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    // Implement Colorable interface
+    public String getColor() {
+        return color;
+    }
+}
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        for (int i = 0; i < n; i++) {
+            double radius = sc.nextDouble();
+            String color = sc.next();
+
+            ColoredCircle circle = new ColoredCircle(radius, color);
+
+            // Print formatted output
+            System.out.printf("Area: %.2f, Color: %s\n",
+                    circle.calculateArea(),
+                    circle.getColor());
+        }
+
+        sc.close();
+    }
+}

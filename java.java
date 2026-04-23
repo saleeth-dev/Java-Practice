@@ -1791,6 +1791,33 @@ class Main {
   }
 }
 
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String name = "muhammed saleeth    ";
+
+        int length = name.length();
+        char letter = name.charAt(2);
+        int index = name.indexOf(" ");
+        name = name.toUpperCase();
+        name = name.toLowerCase();
+        name = name.trim();
+        name = name.replace("mahammed", "ahmed");
+
+
+        System.out.println("Length of the name: " + length);
+        System.out.println("Letter at index 2: " + letter);
+        System.out.println("Index of the name: " + index);
+        System.out.println("Name in uppercase: " + name.toUpperCase());
+        System.out.println("Name in lowercase: " + name.toLowerCase());
+        System.out.println("Name after trimming: '" + name.trim() + "'");
+        System.out.println("Name after replacement: '" + name.replace("mahammed", "ahmed") + "'");
+        sc.close();
+    }
+    }
 
 
 

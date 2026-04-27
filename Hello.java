@@ -336,232 +336,27 @@ class Solution {
     }
 }
 
-import java.util.Random;
 import java.util.Scanner;
 
-class DiceGame {
-
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-        Random rand = new Random();
-
-        System.out.println("Press Enter to roll the dice...");
-        sc.nextLine();
-
-        int user = rand.nextInt(6) + 1;
-        int computer = rand.nextInt(6) + 1;
-
-        System.out.println("You rolled: " + user);
-        System.out.println("Computer rolled: " + computer);
-
-        if (user > computer) {
-            System.out.println("You Win! 🎉");
-        } else if (user < computer) {
-            System.out.println("Computer Wins!");
-        } else {
-            System.out.println("It's a Draw!");
-        }
-
-        sc.close();
-    }
-}
-
-import java.util.Scanner;
-
-class ATMSystem {
-
-    static Scanner sc = new Scanner(System.in);
-    static int pin = 1234;
-    static double balance = 1000;
-
-    public static void main(String[] args) {
-
-        System.out.print("Enter your PIN: ");
-        int enteredPin = sc.nextInt();
-
-        if (enteredPin != pin) {
-            System.out.println("Wrong PIN ❌");
-            return;
-        }
-
-        int choice;
-
-        do {
-            System.out.println("\n--- ATM MENU ---");
-            System.out.println("1. Check Balance");
-            System.out.println("2. Deposit");
-            System.out.println("3. Withdraw");
-            System.out.println("4. Exit");
-            System.out.print("Enter choice: ");
-
-            choice = sc.nextInt();
-
-            switch (choice) {
-                case 1:
-                    System.out.println("Balance: ₹" + balance);
-                    break;
-
-                case 2:
-                    System.out.print("Enter deposit amount: ");
-                    double dep = sc.nextDouble();
-                    balance += dep;
-                    System.out.println("Deposit successful!");
-                    break;
-
-                case 3:
-                    System.out.print("Enter withdraw amount: ");
-                    double wd = sc.nextDouble();
-
-                    if (wd <= balance) {
-                        balance -= wd;
-                        System.out.println("Please collect cash 💵");
-                    } else {
-                        System.out.println("Insufficient balance ❌");
-                    }
-                    break;
-
-                case 4:
-                    System.out.println("Thank you!");
-                    break;
-
-                default:
-                    System.out.println("Invalid choice");
-            }
-
-        } while (choice != 4);
-
-        sc.close();
-    }
-}
-
-import java.util.Scanner;
-import java.util.Random;
-
-class GuessGame {
-
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-        Random rand = new Random();
-
-        int number = rand.nextInt(100) + 1;
-        int guess;
-
-        System.out.println("Guess a number between 1 and 100");
-
-        do {
-            System.out.print("Enter your guess: ");
-            guess = sc.nextInt();
-
-            if (guess > number) {
-                System.out.println("Too High ⬆️");
-            } 
-            else if (guess < number) {
-                System.out.println("Too Low ⬇️");
-            } 
-            else {
-                System.out.println("Correct! ");
-            }
-
-        } while (guess != number);
-
-        sc.close();
-    }
-}
-
-
-import java.util.Scanner;
-
-class EvenOdd {
-
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Enter a number: ");
-        int num = sc.nextInt();
-
-        if (num % 2 == 0) {
-            System.out.println("Even Number");
-        } else {
-            System.out.println("Odd Number");
-        }
-
-        sc.close();
-    }
-}
-
-import java.util.Scanner;
-
-class AddNumbers {
-
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Enter first number: ");
-        int a = sc.nextInt();
-
-        System.out.print("Enter second number: ");
-        int b = sc.nextInt();
-
-        int sum = a + b;
-
-        System.out.println("Sum = " + sum);
-
-        sc.close();
-    }
-}
-
-import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
 
-        String item;
-        double price;
-        int quantity;
-        char currency = '$';
-        double total;
+        double temp;
+        double newTemp;
+        String unit;
 
-        System.out.print("What item would you like to buy?: ");
-        item = sc.nextLine();
+        System.out.print("Enter the temperature:");
+        temp = sc.nextDouble();
 
-        System.out.print("what is the price for each?: ");
-        price = sc.nextDouble();
+        System.out.print("Convert to Celsius or Fahrenheit? (C/F): ");
+        unit = sc.next().toUpperCase();
 
-        System.out.print("How many would you like?: ");
-        quantity = sc.nextInt();
+        newTemp = (unit.equals("C")) ? (temp - 32) * 5 / 9 : (temp * 9 / 5) + 32;
 
-        total = price * quantity;
-        System.out.println(total  + " " + currency);
-
+        System.out.printf("%.2f %s", newTemp, unit);
 
         sc.close();
 
-
-
     }
 }
-
-class Animal {
-  String type = "Animal";
-}
-
-class Dog extends Animal {
-  String type = "Dog";
-
-  public void printType() {
-    System.out.println(super.type); // Access parent attribute
-  }
-}
-
-public class Main {
-  public static void main(String[] args) {
-    Dog myDog = new Dog();
-    myDog.printType();
-  }
-}
-

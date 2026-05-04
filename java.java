@@ -1873,7 +1873,31 @@ class Calculator {
     }
 }
 
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] foods;
+        int size;
 
+        System.out.println("How many foods do you want to enter? ");
+        size = sc.nextInt(); // Consume the newline character
+        sc.nextLine(); // Consume the newline character after nextInt()
+        
+        foods = new String[size];
+
+        for(int i = 0; i < foods.length; i++) {
+            System.out.print("Enter a food: ");
+            foods[i] = sc.nextLine();
+        }
+        for(String food : foods) {
+            System.out.println(food);
+        }
+
+        sc.close();
+
+    }
+}
 
 
 

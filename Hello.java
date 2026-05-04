@@ -360,3 +360,35 @@ public class Main {
 
     }
 }
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int[] numbers = {1, 2, 3, 4, 5};
+        String[] fruits = {"Apple", "Banana", "Cherry", "Date"};
+        boolean isFound = false;
+        String target;
+        
+        System.out.println("Enter a target fruit to search for:");
+        target = sc.nextLine();
+        
+
+        for(int i = 0; i < fruits.length; i++) {
+                if(fruits[i].equals(target)) {
+                    System.out.println("Target found at index: " + i);
+                    isFound = true;
+                    break;
+                }
+            }
+
+            if(!isFound) {
+                System.out.println("Target not found in the array.");
+
+            }   
+
+
+            sc.close();
+        }
+    }

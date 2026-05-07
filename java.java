@@ -1899,6 +1899,58 @@ public class Main {
     }
 }
 
+class BankAccount {
+
+    String accountHolder;
+    int accountNumber;
+    double balance;
+
+    // Constructor
+    BankAccount(String name, int number, double bal) {
+        accountHolder = name;
+        accountNumber = number;
+        balance = bal;
+    }
+
+    // Deposit method
+    void deposit(double amount) {
+        balance = balance + amount;
+    }
+
+    // Withdraw method
+    void withdraw(double amount) {
+
+        if(amount <= balance) {
+            balance = balance - amount;
+        }
+        else {
+            System.out.println("Insufficient Balance");
+        }
+    }
+
+    // Display method
+    void display() {
+        System.out.println("Account Holder: " + accountHolder);
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Balance: " + balance);
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        BankAccount b1 =
+            new BankAccount("Saleeth", 12345, 5000);
+
+        b1.deposit(2000);
+
+        b1.withdraw(1000);
+
+        b1.display();
+    }
+}
+
 
 
 

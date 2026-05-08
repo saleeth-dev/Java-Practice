@@ -1952,7 +1952,20 @@ public class Main {
 }
 
 
+class Printer {
 
+    void print(int n){
+        System.out.println("Printing integer: " + n);
+    }
+
+    void print(String text){
+        System.out.println("Printing text: " + text);
+    }
+
+    void print(double d){
+        System.out.println("Printing decimal: " + d);
+    }
+}
 
 
 

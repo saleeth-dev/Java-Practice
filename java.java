@@ -1991,7 +1991,32 @@ public class Main {
     }
 }
 
-
+class Payment {
+    void pay(){
+        System.out.println("Payment processing");
+    }
+}
+class UPI extends Payment {
+    @Override
+    void pay() {
+        System.out.println("Payment through UPI");
+    }
+}
+class CardPayment extends Payment {
+    @Override
+    void pay() {
+        System.out.println("Payment through Card");
+    }
+}
+public class Main {
+    public static void main(String[] args){
+       Payment p1 = new UPI();
+       Payment p2 = new CardPayment();
+       p1.pay();
+       p2.pay();
+    }
+}
+        
 
 
 

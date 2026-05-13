@@ -286,6 +286,42 @@ public class Main {
 
         c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2)); 
 
+class Device {
+    String brand;
+    int price;
+
+    Device(String brand, int price) {
+        this.brand = brand;
+        this.price = price;
+    }
+
+    void displayDevice() {
+        System.out.println("Brand: " + brand);
+        System.out.println("Price: " + price);
+    }
+}
+class Phone extends Device {
+    String storage;
+
+    Phone(String brand, int price, String storage) {
+        super(brand, price);
+        this.storage = storage;
+    }
+
+    void displayPhone() {
+        System.out.println("Storage: " + storage);
+    }
+
+}
+public class Main {
+    public static void main(String[] args){
+        Phone p1 = new Phone("Apple", 9999, "228GB");
+        p1.displayDevice();
+        p1.displayPhone();
+    }
+}
+        
+
         System.out.println("The hypotenuse is: " + c);
 
         sc.close();

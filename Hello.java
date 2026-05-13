@@ -415,3 +415,21 @@ public class Main {
         d1.sound();
     }
 }
+
+abstract class Employee {
+    abstract void salary();
+}
+class Manager extends Employee {
+    void salary() {
+        System.out.println("Manager Salary is 80000");
+    }
+}
+public class Main {
+    public static void main(String[] args){
+       Employee e1 = new Manager ();
+       e1.salary();
+        
+       
+    }
+}
+        

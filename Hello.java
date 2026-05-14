@@ -432,4 +432,59 @@ public class Main {
        
     }
 }
+
+import java.util.*;
+class Employee {
+
+    private String name;
+    private double salary;
+
+    Employee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public double getSalary(){
+        return salary;
+    }
+
+    public double calaculateSalary(){
+        return salary;
+    }
+}
+class Developer extends Employee {
+    private double bonus;
+
+    Developer(String name, double salary, double bonus) {
+
+        super(name, salary);
+        this.bonus = bonus;
+    }
+
+    @Override
+    public double calaculateSalary() {
+        return getSalary() + bonus;
+    }
+}
+
+public class Solution{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+
+        String name = sc.nextLine();
+        double salary = sc.nextDouble();
+        double bonus = sc.nextDouble();
+
+        Employee d1 = new Developer(name, salary, bonus);
+
+        System.out.println("Name: " + d1.getName());
+        System.out.println("Total Salary: " + d1.calaculateSalary());
+        
+        sc.close();
+    }
+}
         

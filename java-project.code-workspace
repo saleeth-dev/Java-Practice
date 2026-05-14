@@ -327,3 +327,82 @@ public class Main {
         sc.close();
     }
 }
+
+import java.util.*;
+
+class Product {
+
+    private String productName;
+    private int price;
+    private int quantity;
+
+    Product(String productName, int price, int quantity) {
+
+        this.productName = productName;
+
+        if(price <= 0 || quantity <= 0) {
+
+            System.out.println("Invalid product details");
+
+            this.price = 1;
+            this.quantity = 1;
+
+        } else {
+
+            this.price = price;
+            this.quantity = quantity;
+        }
+    }
+
+    public int calculateTotal() {
+        return price * quantity;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+}
+
+public class Solution {
+
+    public static void main(String[] args){
+
+        Scanner sc = new Scanner(System.in);
+
+        String productName = sc.nextLine();
+        int price = sc.nextInt();
+        int quantity = sc.nextInt();
+
+        Product p1 = new Product(
+                productName,
+                price,
+                quantity
+        );
+
+        System.out.println(
+                "Product Name: " +
+                p1.getProductName());
+
+        System.out.println(
+                "Price: " +
+                p1.getPrice());
+
+        System.out.println(
+                "Quantity: " +
+                p1.getQuantity());
+
+        System.out.println(
+                "Total: " +
+                p1.calculateTotal());
+
+        sc.close();
+    }
+}

@@ -2072,7 +2072,49 @@ public class Solution{
     }
 }
         
+import java.util.Random;
+import java.util.Scanner;
 
+class RockPaperScissors {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        Random rand = new Random();
+
+        String[] choices = {"Rock", "Paper", "Scissors"};
+
+        System.out.println("Choose:");
+        System.out.println("1. Rock");
+        System.out.println("2. Paper");
+        System.out.println("3. Scissors");
+
+        System.out.print("Enter choice: ");
+        int userChoice = sc.nextInt();
+
+        String user = choices[userChoice - 1];
+        String computer = choices[rand.nextInt(3)];
+
+        System.out.println("You chose: " + user);
+        System.out.println("Computer chose: " + computer);
+
+        if (user.equals(computer)) {
+            System.out.println("It's a Draw!");
+        }
+        else if (
+            (user.equals("Rock") && computer.equals("Scissors")) ||
+            (user.equals("Paper") && computer.equals("Rock")) ||
+            (user.equals("Scissors") && computer.equals("Paper"))
+        ) {
+            System.out.println("You Win! ");
+        }
+        else {
+            System.out.println("Computer Wins!");
+        }
+
+        sc.close();
+    }
+}
 
 
 

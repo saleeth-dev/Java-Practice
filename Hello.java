@@ -516,3 +516,38 @@ class ShoppingBill {
         sc.close();
     }
 }
+
+import java.util.Scanner;
+
+class AttendanceSystem {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Student Name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter Total Classes: ");
+        int totalClasses = sc.nextInt();
+
+        System.out.print("Enter Attended Classes: ");
+        int attended = sc.nextInt();
+
+        double percentage = (attended * 100.0) / totalClasses;
+
+        System.out.println("\n===== ATTENDANCE REPORT =====");
+        System.out.println("Student Name      : " + name);
+        System.out.println("Total Classes     : " + totalClasses);
+        System.out.println("Classes Attended  : " + attended);
+        System.out.println("Attendance %      : " + percentage);
+
+        if (percentage >= 75) {
+            System.out.println("Status: Eligible for Exam ");
+        } else {
+            System.out.println("Status: Not Eligible ");
+        }
+
+        sc.close();
+    }
+}

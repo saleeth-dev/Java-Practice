@@ -551,3 +551,119 @@ class AttendanceSystem {
         sc.close();
     }
 }
+
+import { useState, useReducer, useRef } from "react";
+
+// Reducer Function
+function reducer(state, action) {
+
+  switch(action.type) {
+
+    case "add":
+
+      return [
+        ...state,
+        {
+          id: Date.now(),
+          text: action.payload,
+          hidden: false
+        }
+      ];
+
+    case "toggle":
+
+      return state.map((task) =>
+
+        task.id === action.payload
+
+          ? { ...task, hidden: !task.hidden }
+
+          : task
+      );
+
+    default:
+      return state;
+  }
+}
+
+function App() {
+
+  // useState for input
+  const [task, setTask] = useState("");
+
+  // useReducer for tasks
+  const [tasks, dispatch] = useReducer(reducer, []);
+
+  // useRef for input focus
+  const inputRef = useRef();
+
+  // Add Task
+  function addTask() {
+
+    if(task.trim() !== "") {
+
+      dispatch({
+        type: "add",
+        payload: task
+      });
+
+      setTask("");
+    }
+  }
+
+  // Focus Input
+  function focusInput() {
+    inputRef.current.focus();
+  }
+
+  return (
+    <div>
+
+      <h1>Task Manager</h1>
+
+      <input
+        ref={inputRef}
+        type="text"
+        value={task}
+        placeholder="Enter task"
+        onChange={(e) => setTask(e.target.value)}
+      />
+
+      <button onClick={addTask}>
+        Add Task
+      </button>
+
+      <button onClick={focusInput}>
+        Focus Input
+      </button>
+
+      <hr />
+
+      {tasks.map((task) => (
+
+        <div key={task.id}>
+
+          <p>
+            {task.hidden ? "Content Hidden" : task.text}
+          </p>
+
+          <button
+            onClick={() =>
+              dispatch({
+                type: "toggle",
+                payload: task.id
+              })
+            }
+          >
+            Toggle
+          </button>
+
+        </div>
+
+      ))}
+
+    </div>
+  );
+}
+
+export default App;

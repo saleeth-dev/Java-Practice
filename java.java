@@ -2202,7 +2202,68 @@ function App() {
 
 export default App;
 
+import java.util.Scanner;
 
+class HotelBooking {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int singleRoom = 1000;
+        int doubleRoom = 1800;
+        int deluxeRoom = 3000;
+
+        System.out.print("Enter Customer Name: ");
+        String name = sc.nextLine();
+
+        System.out.println("\n===== ROOM TYPES =====");
+        System.out.println("1. Single Room - ₹1000/day");
+        System.out.println("2. Double Room - ₹1800/day");
+        System.out.println("3. Deluxe Room - ₹3000/day");
+
+        System.out.print("Choose Room Type: ");
+        int choice = sc.nextInt();
+
+        System.out.print("Enter Number of Days: ");
+        int days = sc.nextInt();
+
+        int total = 0;
+        String room = "";
+
+        switch(choice) {
+
+            case 1:
+                room = "Single Room";
+                total = singleRoom * days;
+                break;
+
+            case 2:
+                room = "Double Room";
+                total = doubleRoom * days;
+                break;
+
+            case 3:
+                room = "Deluxe Room";
+                total = deluxeRoom * days;
+                break;
+
+            default:
+                System.out.println("Invalid Choice!");
+                return;
+        }
+
+        System.out.println("\n===== BOOKING DETAILS =====");
+        System.out.println("Customer Name : " + name);
+        System.out.println("Room Type     : " + room);
+        System.out.println("Days Stayed   : " + days);
+        System.out.println("Total Bill    : ₹" + total);
+
+        System.out.println("\nRoom Booked Successfully ");
+
+        sc.close();
+    }
+}
 
 
 

@@ -661,9 +661,103 @@ function App() {
         </div>
 
       ))}
-
     </div>
   );
 }
 
 export default App;
+
+import java.util.Scanner;
+
+class LibrarySystem {
+
+    static Scanner sc = new Scanner(System.in);
+
+    static String[] books = new String[50];
+    static int count = 0;
+
+    public static void main(String[] args) {
+
+        int choice;
+
+        do {
+            System.out.println("\n=== LIBRARY MENU ===");
+            System.out.println("1. Add Book");
+            System.out.println("2. View Books");
+            System.out.println("3. Search Book");
+            System.out.println("4. Exit");
+            System.out.print("Enter choice: ");
+
+            choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+
+                case 1:
+                    addBook();
+                    break;
+
+                case 2:
+                    viewBooks();
+                    break;
+
+                case 3:
+                    searchBook();
+                    break;
+
+                case 4:
+                    System.out.println("Exiting Library System...");
+                    break;
+
+                default:
+                    System.out.println("Invalid Choice!");
+            }
+
+        } while (choice != 4);
+    }
+
+    static void addBook() {
+
+        System.out.print("Enter book name: ");
+        books[count] = sc.nextLine();
+
+        count++;
+
+        System.out.println("Book added successfully!");
+    }
+
+    static void viewBooks() {
+
+        if (count == 0) {
+            System.out.println("No books available.");
+            return;
+        }
+
+        System.out.println("\n--- Book List ---");
+
+        for (int i = 0; i < count; i++) {
+            System.out.println((i + 1) + ". " + books[i]);
+        }
+    }
+
+    static void searchBook() {
+
+        System.out.print("Enter book name to search: ");
+        String search = sc.nextLine();
+
+        boolean found = false;
+
+        for (int i = 0; i < count; i++) {
+
+            if (books[i].equalsIgnoreCase(search)) {
+                System.out.println("Book Found: " + books[i]);
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Book not found.");
+        }
+    }
+}

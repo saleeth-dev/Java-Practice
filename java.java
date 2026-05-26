@@ -2265,7 +2265,64 @@ class HotelBooking {
     }
 }
 
+import java.util.Scanner;
 
+class FoodOrderSystem {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int burgerPrice = 120;
+        int pizzaPrice = 250;
+        int sandwichPrice = 90;
+
+        System.out.println("===== FOOD MENU =====");
+        System.out.println("1. Burger - ₹120");
+        System.out.println("2. Pizza - ₹250");
+        System.out.println("3. Sandwich - ₹90");
+
+        System.out.print("Enter your choice: ");
+        int choice = sc.nextInt();
+
+        System.out.print("Enter quantity: ");
+        int quantity = sc.nextInt();
+
+        int total = 0;
+        String item = "";
+
+        switch(choice) {
+
+            case 1:
+                item = "Burger";
+                total = burgerPrice * quantity;
+                break;
+
+            case 2:
+                item = "Pizza";
+                total = pizzaPrice * quantity;
+                break;
+
+            case 3:
+                item = "Sandwich";
+                total = sandwichPrice * quantity;
+                break;
+
+            default:
+                System.out.println("Invalid Choice!");
+                return;
+        }
+
+        System.out.println("\n===== ORDER BILL =====");
+        System.out.println("Food Item : " + item);
+        System.out.println("Quantity  : " + quantity);
+        System.out.println("Total Bill: ₹" + total);
+
+        System.out.println("\nOrder Placed Successfully 🎉");
+
+        sc.close();
+    }
+}
 
 
 

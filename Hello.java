@@ -761,3 +761,66 @@ class LibrarySystem {
         }
     }
 }
+
+import java.util.Scanner;
+
+class RailwayBooking {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int sleeper = 250;
+        int ac = 600;
+        int firstClass = 1000;
+
+        System.out.print("Enter Passenger Name: ");
+        String name = sc.nextLine();
+
+        System.out.println("\n===== TRAIN CLASSES =====");
+        System.out.println("1. Sleeper - ₹250");
+        System.out.println("2. AC - ₹600");
+        System.out.println("3. First Class - ₹1000");
+
+        System.out.print("Choose Class: ");
+        int choice = sc.nextInt();
+
+        System.out.print("Enter Number of Tickets: ");
+        int tickets = sc.nextInt();
+
+        int total = 0;
+        String trainClass = "";
+
+        switch(choice) {
+
+            case 1:
+                trainClass = "Sleeper";
+                total = sleeper * tickets;
+                break;
+
+            case 2:
+                trainClass = "AC";
+                total = ac * tickets;
+                break;
+
+            case 3:
+                trainClass = "First Class";
+                total = firstClass * tickets;
+                break;
+
+            default:
+                System.out.println("Invalid Choice!");
+                return;
+        }
+
+        System.out.println("\n===== TICKET DETAILS =====");
+        System.out.println("Passenger Name : " + name);
+        System.out.println("Train Class    : " + trainClass);
+        System.out.println("No. of Tickets : " + tickets);
+        System.out.println("Total Fare     : ₹" + total);
+
+        System.out.println("\nTicket Booked Successfully 🎉");
+
+        sc.close();
+    }
+}

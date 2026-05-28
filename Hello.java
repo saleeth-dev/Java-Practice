@@ -910,7 +910,34 @@ class HospitalAppointment {
         System.out.println("Doctor       : " + doctor);
         System.out.println("Day          : " + day);
 
-        System.out.println("\nAppointment Booked Successfully 🎉");
+        System.out.println("\nAppointment Booked Successfully ");
+
+        sc.close();
+    }
+}
+
+import java.util.Scanner;
+
+class EmployeeSalary {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Employee Name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter Basic Salary: ");
+        double salary = sc.nextDouble();
+
+        double bonus = salary * 0.10; // 10% bonus
+        double finalSalary = salary + bonus;
+
+        System.out.println("\n===== EMPLOYEE DETAILS =====");
+        System.out.println("Employee Name : " + name);
+        System.out.println("Basic Salary  : ₹" + salary);
+        System.out.println("Bonus         : ₹" + bonus);
+        System.out.println("Final Salary  : ₹" + finalSalary);
 
         sc.close();
     }

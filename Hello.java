@@ -859,3 +859,59 @@ class AttendanceSystem {
         sc.close();
     }
 }
+
+import java.util.Scanner;
+
+class HospitalAppointment {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Patient Name: ");
+        String patient = sc.nextLine();
+
+        System.out.println("\n===== DOCTORS AVAILABLE =====");
+        System.out.println("1. Dr. Smith - General");
+        System.out.println("2. Dr. John - Dentist");
+        System.out.println("3. Dr. Sarah - Eye Specialist");
+
+        System.out.print("Choose Doctor: ");
+        int choice = sc.nextInt();
+
+        sc.nextLine();
+
+        System.out.print("Enter Appointment Day: ");
+        String day = sc.nextLine();
+
+        String doctor = "";
+
+        switch(choice) {
+
+            case 1:
+                doctor = "Dr. Smith";
+                break;
+
+            case 2:
+                doctor = "Dr. John";
+                break;
+
+            case 3:
+                doctor = "Dr. Sarah";
+                break;
+
+            default:
+                System.out.println("Invalid Choice!");
+                return;
+        }
+
+        System.out.println("\n===== APPOINTMENT DETAILS =====");
+        System.out.println("Patient Name : " + patient);
+        System.out.println("Doctor       : " + doctor);
+        System.out.println("Day          : " + day);
+
+        System.out.println("\nAppointment Booked Successfully 🎉");
+
+        sc.close();
+    }
+}

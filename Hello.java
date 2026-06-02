@@ -942,3 +942,31 @@ class EmployeeSalary {
         sc.close();
     }
 }
+
+import java.util.Random;
+import java.util.Scanner;
+
+class PasswordGenerator {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        Random random = new Random();
+
+        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*";
+
+        System.out.print("Enter password length: ");
+        int length = sc.nextInt();
+
+        String password = "";
+
+        for (int i = 0; i < length; i++) {
+            int index = random.nextInt(chars.length());
+            password += chars.charAt(index);
+        }
+
+        System.out.println("\nGenerated Password: " + password);
+
+        sc.close();
+    }
+}

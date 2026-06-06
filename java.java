@@ -2117,7 +2117,6 @@ class RockPaperScissors {
 }
 
 
-
 import java.util.Scanner;
 
 class FoodOrderSystem {
@@ -2387,4 +2386,52 @@ class HotelBooking {
     }
 }
 
+import java.util.Scanner;
 
+class MovieTicketBooking {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int ticketPrice = 200;
+
+        System.out.print("Enter Customer Name: ");
+        String name = sc.nextLine();
+
+        System.out.println("\n===== MOVIES =====");
+        System.out.println("1. Avengers");
+        System.out.println("2. Interstellar");
+        System.out.println("3. Spider-Man");
+
+        System.out.print("Select Movie: ");
+        int choice = sc.nextInt();
+
+        System.out.print("Enter Number of Tickets: ");
+        int tickets = sc.nextInt();
+
+        String movie = "";
+
+        switch(choice) {
+            case 1:
+                movie = "Avengers";
+                break;
+            case 2:
+                movie = "Interstellar";
+                break;
+            case 3:
+                movie = "Spider-Man";
+                break;
+            default:
+                System.out.println("Invalid Choice!");
+                return;
+        }
+
+        int total = tickets * ticketPrice;
+
+        System.out.println("\n===== BOOKING DETAILS =====");
+        System.out.println("Customer Name : " + name);
+        System.out.println("Movie Name    : " + movie);
+        System.out.println("Tickets       : " + tickets);
+        System.out.println("Ticket Price  : ₹" + ticketPrice);
+        System.out.println("Total Amount  : ₹" + total

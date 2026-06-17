@@ -2435,3 +2435,40 @@ class MovieTicketBooking {
         System.out.println("Tickets       : " + tickets);
         System.out.println("Ticket Price  : ₹" + ticketPrice);
         System.out.println("Total Amount  : ₹" + total
+
+import java.util.Scanner;
+
+class SupermarketBill {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Product Name: ");
+        String product = sc.nextLine();
+
+        System.out.print("Enter Quantity: ");
+        int quantity = sc.nextInt();
+
+        System.out.print("Enter Price per Item: ");
+        double price = sc.nextDouble();
+
+        double total = quantity * price;
+        double discount = 0;
+
+        if (total > 1000) {
+            discount = total * 0.10; // 10% discount
+        }
+
+        double finalBill = total - discount;
+
+        System.out.println("\n===== BILL RECEIPT =====");
+        System.out.println("Product      : " + product);
+        System.out.println("Quantity     : " + quantity);
+        System.out.println("Total Amount : ₹" + total);
+        System.out.println("Discount     : ₹" + discount);
+        System.out.println("Final Bill   : ₹" + finalBill);
+
+        sc.close();
+    }
+}

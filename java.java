@@ -2508,3 +2508,51 @@ class SupermarketBill {
         sc.close();
     }
 }
+
+    import java.util.Scanner;
+
+class MobileRecharge {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Mobile Number: ");
+        String mobile = sc.nextLine();
+
+        System.out.println("\n===== RECHARGE PLANS =====");
+        System.out.println("1. ₹199 Plan");
+        System.out.println("2. ₹299 Plan");
+        System.out.println("3. ₹499 Plan");
+
+        System.out.print("Choose Plan: ");
+        int choice = sc.nextInt();
+
+        int amount = 0;
+
+        switch(choice) {
+            case 1:
+                amount = 199;
+                break;
+
+            case 2:
+                amount = 299;
+                break;
+
+            case 3:
+                amount = 499;
+                break;
+
+            default:
+                System.out.println("Invalid Plan!");
+                return;
+        }
+
+        System.out.println("\n===== RECHARGE RECEIPT =====");
+        System.out.println("Mobile Number : " + mobile);
+        System.out.println("Recharge Amount : ₹" + amount);
+        System.out.println("Recharge Successful ");
+
+        sc.close();
+    }
+}

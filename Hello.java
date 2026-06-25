@@ -1130,3 +1130,66 @@ public class ATMPinSystem {
         sc.close();
     }
 }
+
+import java.util.Scanner;
+
+public class ParkingManagement {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int totalSpaces = 20;
+        int occupied = 0;
+        int choice;
+
+        do {
+            System.out.println("\n===== PARKING MANAGEMENT =====");
+            System.out.println("1. Park Vehicle");
+            System.out.println("2. Remove Vehicle");
+            System.out.println("3. View Parking Status");
+            System.out.println("4. Exit");
+            System.out.print("Enter Choice: ");
+
+            choice = sc.nextInt();
+
+            switch (choice) {
+
+                case 1:
+                    if (occupied < totalSpaces) {
+                        occupied++;
+                        System.out.println("Vehicle Parked Successfully ");
+                    } else {
+                        System.out.println("Parking Full ");
+                    }
+                    break;
+
+                case 2:
+                    if (occupied > 0) {
+                        occupied--;
+                        System.out.println("Vehicle Removed Successfully ");
+                    } else {
+                        System.out.println("No Vehicles in Parking.");
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("\n===== PARKING STATUS =====");
+                    System.out.println("Total Spaces     : " + totalSpaces);
+                    System.out.println("Occupied Spaces  : " + occupied);
+                    System.out.println("Available Spaces : " + (totalSpaces - occupied));
+                    break;
+
+                case 4:
+                    System.out.println("Thank You! Visit Again.");
+                    break;
+
+                default:
+                    System.out.println("Invalid Choice!");
+            }
+
+        } while (choice != 4);
+
+        sc.close();
+    }
+}

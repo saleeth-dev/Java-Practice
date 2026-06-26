@@ -1193,3 +1193,60 @@ public class ParkingManagement {
         sc.close();
     }
 }
+
+import java.util.Scanner;
+
+class Parallelogram {
+
+    private double base;
+    private double height;
+    private static int totalParallelograms = 0;
+
+    public Parallelogram(double base, double height) {
+        this.base = base;
+        this.height = height;
+        totalParallelograms++;
+    }
+
+    public double calculateArea() {
+        return base * height;
+    }
+
+    public void display(int number) {
+        System.out.printf(
+            "Parallelogram %d: Base: %.2f, Height: %.2f, Area: %.2f%n",
+            number, base, height, calculateArea()
+        );
+    }
+
+    public static int getTotalParallelograms() {
+        return totalParallelograms;
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        Parallelogram[] arr = new Parallelogram[3];
+
+        for (int i = 0; i < 3; i++) {
+
+            double base = sc.nextDouble();
+            double height = sc.nextDouble();
+
+            arr[i] = new Parallelogram(base, height);
+        }
+
+        for (int i = 0; i < 3; i++) {
+            arr[i].display(i + 1);
+        }
+
+        System.out.println("Total Parallelograms: " +
+                Parallelogram.getTotalParallelograms());
+
+        sc.close();
+    }
+}

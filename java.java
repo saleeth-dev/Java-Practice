@@ -2591,3 +2591,10 @@ public class ATMPinSystem {
         sc.close();
     }
 }
+int id = 10;
+String name = "Saleeth";
+double marks = 95.5;
+
+System.out.printf("ID: %d%n", id);
+System.out.printf("Name: %s%n", name);
+System.out.printf("Marks: %.2f%n", marks);

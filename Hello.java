@@ -1250,3 +1250,70 @@ public class Main {
         sc.close();
     }
 }
+import java.util.Scanner;
+
+public class BankAccountSystem {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String accountHolder;
+        double balance = 0;
+
+        System.out.println("===== BANK ACCOUNT SYSTEM =====");
+        System.out.print("Enter Account Holder Name: ");
+        accountHolder = sc.nextLine();
+
+        int choice;
+
+        do {
+            System.out.println("\n===== MENU =====");
+            System.out.println("1. Deposit Money");
+            System.out.println("2. Withdraw Money");
+            System.out.println("3. Check Balance");
+            System.out.println("4. Exit");
+            System.out.print("Enter Choice: ");
+
+            choice = sc.nextInt();
+
+            switch (choice) {
+
+                case 1:
+                    System.out.print("Enter Deposit Amount: ₹");
+                    double deposit = sc.nextDouble();
+                    balance += deposit;
+                    System.out.println("Deposit Successful!");
+                    break;
+
+                case 2:
+                    System.out.print("Enter Withdraw Amount: ₹");
+                    double withdraw = sc.nextDouble();
+
+                    if (withdraw <= balance) {
+                        balance -= withdraw;
+                        System.out.println("Withdrawal Successful!");
+                    } else {
+                        System.out.println("Insufficient Balance!");
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("\n===== ACCOUNT DETAILS =====");
+                    System.out.println("Account Holder : " + accountHolder);
+                    System.out.println("Current Balance: ₹" + balance);
+                    break;
+
+                case 4:
+                    System.out.println("Thank You for Using Our Bank!");
+                    break;
+
+                default:
+                    System.out.println("Invalid Choice!");
+            }
+
+        } while (choice != 4);
+
+        sc.close();
+    }
+}

@@ -2730,3 +2730,72 @@ public class VehicleRentalSystem {
         sc.close();
     }
 }
+import java.util.Scanner;
+
+class Vehicle {
+
+    String name;
+    int pricePerDay;
+
+    Vehicle(String name, int pricePerDay) {
+        this.name = name;
+        this.pricePerDay = pricePerDay;
+    }
+
+    int calculateRent(int days) {
+        return pricePerDay * days;
+    }
+}
+
+
+public class VehicleRentalSystem {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        Vehicle car = new Vehicle("Car", 1500);
+        Vehicle bike = new Vehicle("Bike", 500);
+        Vehicle scooter = new Vehicle("Scooter", 300);
+
+        System.out.print("Enter Customer Name: ");
+        String customer = sc.nextLine();
+
+        System.out.println("\n===== VEHICLES =====");
+        System.out.println("1. Car - ₹1500/day");
+        System.out.println("2. Bike - ₹500/day");
+        System.out.println("3. Scooter - ₹300/day");
+
+        System.out.print("Choose Vehicle: ");
+        int choice = sc.nextInt();
+
+        System.out.print("Enter Rental Days: ");
+        int days = sc.nextInt();
+
+        Vehicle selected;
+
+        if(choice == 1) {
+            selected = car;
+        }
+        else if(choice == 2) {
+            selected = bike;
+        }
+        else if(choice == 3) {
+            selected = scooter;
+        }
+        else {
+            System.out.println("Invalid Choice!");
+            return;
+        }
+
+        int total = selected.calculateRent(days);
+
+        System.out.println("\n===== RENT BILL =====");
+        System.out.println("Customer: " + customer);
+        System.out.println("Vehicle : " + selected.name);
+        System.out.println("Days    : " + days);
+        System.out.println("Amount  : ₹" + total);
+
+        sc.close();
+    }
+}

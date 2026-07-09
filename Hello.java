@@ -1317,3 +1317,79 @@ public class BankAccountSystem {
         sc.close();
     }
 }
+import java.util.Scanner;
+
+class Student {
+
+    int rollNo;
+    String name;
+    int mark1, mark2, mark3;
+
+    Student(int rollNo, String name, int mark1, int mark2, int mark3) {
+        this.rollNo = rollNo;
+        this.name = name;
+        this.mark1 = mark1;
+        this.mark2 = mark2;
+        this.mark3 = mark3;
+    }
+
+    int calculateTotal() {
+        return mark1 + mark2 + mark3;
+    }
+
+    double calculatePercentage() {
+        return calculateTotal() / 3.0;
+    }
+
+    void displayResult() {
+
+        System.out.println("\n===== STUDENT RESULT =====");
+        System.out.println("Roll No : " + rollNo);
+        System.out.println("Name    : " + name);
+        System.out.println("Total   : " + calculateTotal());
+        System.out.println("Percent : " + calculatePercentage() + "%");
+
+        if(calculatePercentage() >= 75) {
+            System.out.println("Grade   : A");
+        }
+        else if(calculatePercentage() >= 50) {
+            System.out.println("Grade   : B");
+        }
+        else {
+            System.out.println("Grade   : Fail");
+        }
+    }
+}
+
+
+public class StudentManagement {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Roll Number: ");
+        int roll = sc.nextInt();
+
+        sc.nextLine();
+
+        System.out.print("Enter Name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter Mark 1: ");
+        int m1 = sc.nextInt();
+
+        System.out.print("Enter Mark 2: ");
+        int m2 = sc.nextInt();
+
+        System.out.print("Enter Mark 3: ");
+        int m3 = sc.nextInt();
+
+
+        Student s1 = new Student(roll, name, m1, m2, m3);
+
+        s1.displayResult();
+
+        sc.close();
+    }
+}

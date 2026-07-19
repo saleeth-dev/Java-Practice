@@ -2868,3 +2868,87 @@ public class VehicleRentalSystem {
         sc.close();
     }
 }
+import java.util.Scanner;
+
+public class BankManagementSystem {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String accountHolder = "";
+        double balance = 0;
+        boolean accountCreated = false;
+        int choice;
+
+        do {
+            System.out.println("\n===== BANK MANAGEMENT SYSTEM =====");
+            System.out.println("1. Create Account");
+            System.out.println("2. Deposit Money");
+            System.out.println("3. Withdraw Money");
+            System.out.println("4. Check Balance");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+
+            choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+
+                case 1:
+                    if (!accountCreated) {
+                        System.out.print("Enter Account Holder Name: ");
+                        accountHolder = sc.nextLine();
+
+                        System.out.print("Enter Initial Deposit: ");
+                        balance = sc.nextDouble();
+
+                        accountCreated = true;
+                        System.out.println("Account Created Successfully!");
+                    } else {
+                        System.out.println("Account Already Exists!");
+                    }
+                    break;
+
+                case 2:
+                    if (accountCreated) {
+                        System.out.print("Enter Deposit Amount: ");
+                        double deposit = sc.nextDouble();
+                        balance += deposit;
+                        System.out.println("Deposit Successful.");
+                    } else {
+                        System.out.println("Create an account first.");
+                    }
+                    break;
+
+                case 3:
+                    if (accountCreated) {
+                        System.out.print("Enter Withdrawal Amount: ");
+                        double withdraw = sc.nextDouble();
+
+                        if (withdraw <= balance) {
+                            balance -= withdraw;
+                            System.out.println("Withdrawal Successful.");
+                        } else {
+                            System.out.println("Insufficient Balance!");
+                        }
+                    } else {
+                        System.out.println("Create an account first.");
+                    }
+                    break;
+
+                case 4:
+                    if (accountCreated) {
+                        System.out.println("\nAccount Holder : " + accountHolder);
+                        System.out.println("Current Balance : ₹" + balance);
+                    } else {
+                        System.out.println("No account found.");
+                    }
+                    break;
+
+                case 5:
+                    System.out.println("Thank you for using our Bank Management System.");
+                    break;
+
+                default:
+                    System.out.println("Invalid Choice

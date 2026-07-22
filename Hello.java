@@ -1460,3 +1460,118 @@ public class BankAccountSystem {
         sc.close();
     }
 }
+import java.util.Scanner;
+
+public class MovieTicketBooking {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String customerName = "";
+        int bookedTickets = 0;
+        int availableSeats = 50;
+        boolean booked = false;
+
+        int choice;
+
+        do {
+
+            System.out.println("\n===== MOVIE TICKET BOOKING SYSTEM =====");
+            System.out.println("1. Book Tickets");
+            System.out.println("2. View Booking");
+            System.out.println("3. Cancel Booking");
+            System.out.println("4. Check Available Seats");
+            System.out.println("5. Exit");
+            System.out.print("Enter Choice: ");
+
+            choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+
+                case 1:
+
+                    if (!booked) {
+
+                        System.out.print("Enter Customer Name: ");
+                        customerName = sc.nextLine();
+
+                        System.out.print("Enter Number of Tickets: ");
+                        int tickets = sc.nextInt();
+
+                        if (tickets <= availableSeats) {
+
+                            bookedTickets = tickets;
+                            availableSeats -= tickets;
+                            booked = true;
+
+                            System.out.println("Booking Successful!");
+
+                        } else {
+
+                            System.out.println("Not Enough Seats Available.");
+                        }
+
+                    } else {
+
+                        System.out.println("Booking Already Exists.");
+                    }
+
+                    break;
+
+                case 2:
+
+                    if (booked) {
+
+                        System.out.println("\nCustomer Name : " + customerName);
+                        System.out.println("Booked Tickets : " + bookedTickets);
+                        System.out.println("Total Amount : ₹" + (bookedTickets * 200));
+
+                    } else {
+
+                        System.out.println("No Booking Found.");
+                    }
+
+                    break;
+
+                case 3:
+
+                    if (booked) {
+
+                        availableSeats += bookedTickets;
+                        bookedTickets = 0;
+                        booked = false;
+
+                        System.out.println("Booking Cancelled Successfully.");
+
+                    } else {
+
+                        System.out.println("No Booking Found.");
+                    }
+
+                    break;
+
+                case 4:
+
+                    System.out.println("Available Seats : " + availableSeats);
+
+                    break;
+
+                case 5:
+
+                    System.out.println("Thank You!");
+
+                    break;
+
+                default:
+
+                    System.out.println("Invalid Choice!");
+
+            }
+
+        } while (choice != 5);
+
+        sc.close();
+    }
+}

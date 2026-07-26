@@ -1575,3 +1575,100 @@ public class MovieTicketBooking {
         sc.close();
     }
 }
+import java.util.Scanner;
+
+public class HospitalManagementSystem {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String patientName = "";
+        int patientAge = 0;
+        String disease = "";
+        boolean admitted = false;
+
+        int choice;
+
+        do {
+
+            System.out.println("\n===== HOSPITAL MANAGEMENT SYSTEM =====");
+            System.out.println("1. Admit Patient");
+            System.out.println("2. View Patient Details");
+            System.out.println("3. Update Patient Age");
+            System.out.println("4. Discharge Patient");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+
+            choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+
+                case 1:
+                    if (!admitted) {
+                        System.out.print("Enter Patient Name: ");
+                        patientName = sc.nextLine();
+
+                        System.out.print("Enter Patient Age: ");
+                        patientAge = sc.nextInt();
+                        sc.nextLine();
+
+                        System.out.print("Enter Disease: ");
+                        disease = sc.nextLine();
+
+                        admitted = true;
+
+                        System.out.println("Patient Admitted Successfully!");
+                    } else {
+                        System.out.println("Patient Already Admitted!");
+                    }
+                    break;
+
+                case 2:
+                    if (admitted) {
+                        System.out.println("\n----- Patient Details -----");
+                        System.out.println("Name    : " + patientName);
+                        System.out.println("Age     : " + patientAge);
+                        System.out.println("Disease : " + disease);
+                    } else {
+                        System.out.println("No Patient Record Found!");
+                    }
+                    break;
+
+                case 3:
+                    if (admitted) {
+                        System.out.print("Enter New Age: ");
+                        patientAge = sc.nextInt();
+                        System.out.println("Age Updated Successfully!");
+                    } else {
+                        System.out.println("No Patient Record Found!");
+                    }
+                    break;
+
+                case 4:
+                    if (admitted) {
+                        admitted = false;
+                        patientName = "";
+                        patientAge = 0;
+                        disease = "";
+
+                        System.out.println("Patient Discharged Successfully!");
+                    } else {
+                        System.out.println("No Patient Record Found!");
+                    }
+                    break;
+
+                case 5:
+                    System.out.println("Thank You!");
+                    break;
+
+                default:
+                    System.out.println("Invalid Choice!");
+            }
+
+        } while (choice != 5);
+
+        sc.close();
+    }
+}

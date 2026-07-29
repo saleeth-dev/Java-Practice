@@ -2952,3 +2952,130 @@ public class BankManagementSystem {
 
                 default:
                     System.out.println("Invalid Choice
+
+
+import java.util.Scanner;
+
+public class BusReservationSystem {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int totalSeats = 40;
+        String passengerName = "";
+        int bookedSeats = 0;
+        String destination = "";
+        boolean bookingDone = false;
+
+        int choice;
+
+        do {
+
+            System.out.println("\n===== BUS RESERVATION SYSTEM =====");
+            System.out.println("1. Book Ticket");
+            System.out.println("2. View Booking");
+            System.out.println("3. Cancel Booking");
+            System.out.println("4. Check Available Seats");
+            System.out.println("5. Exit");
+            System.out.print("Enter Choice: ");
+
+            choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+
+                case 1:
+
+                    if (!bookingDone) {
+
+                        System.out.print("Enter Passenger Name: ");
+                        passengerName = sc.nextLine();
+
+                        System.out.print("Enter Destination: ");
+                        destination = sc.nextLine();
+
+                        System.out.print("Enter Number of Seats: ");
+                        int seats = sc.nextInt();
+
+                        if (seats <= totalSeats) {
+
+                            bookedSeats = seats;
+                            totalSeats -= seats;
+                            bookingDone = true;
+
+                            System.out.println("Ticket Booked Successfully!");
+
+                        } else {
+
+                            System.out.println("Seats Not Available!");
+
+                        }
+
+                    } else {
+
+                        System.out.println("Booking Already Exists!");
+
+                    }
+
+                    break;
+
+                case 2:
+
+                    if (bookingDone) {
+
+                        System.out.println("\n===== BOOKING DETAILS =====");
+                        System.out.println("Passenger Name : " + passengerName);
+                        System.out.println("Destination    : " + destination);
+                        System.out.println("Booked Seats   : " + bookedSeats);
+                        System.out.println("Total Fare     : $" + (bookedSeats * 25));
+
+                    } else {
+
+                        System.out.println("No Booking Found!");
+
+                    }
+
+                    break;
+
+                case 3:
+
+                    if (bookingDone) {
+
+                        totalSeats += bookedSeats;
+                        bookedSeats = 0;
+                        bookingDone = false;
+
+                        System.out.println("Booking Cancelled Successfully!");
+
+                    } else {
+
+                        System.out.println("No Booking Available!");
+
+                    }
+
+                    break;
+
+                case 4:
+
+                    System.out.println("Available Seats : " + totalSeats);
+
+                    break;
+
+                case 5:
+
+                    System.out.println("Thank You!");
+
+                    break;
+
+                default:
+
+                    System.out.println("Invalid Choice!");
+
+            }
+
+        } while (choice != 5);
+
+        sc.close();
+    }
+}

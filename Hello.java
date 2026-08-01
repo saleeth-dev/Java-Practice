@@ -1672,3 +1672,99 @@ public class HospitalManagementSystem {
         sc.close();
     }
 }
+import java.util.Scanner;
+
+public class CollegeFeeManagement {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String studentName = "";
+        int rollNo = 0;
+        double totalFee = 50000;
+        double paidFee = 0;
+        boolean studentAdded = false;
+
+        int choice;
+
+        do {
+
+            System.out.println("\n===== COLLEGE FEE MANAGEMENT =====");
+            System.out.println("1. Add Student");
+            System.out.println("2. Pay Fee");
+            System.out.println("3. View Student Details");
+            System.out.println("4. Check Remaining Fee");
+            System.out.println("5. Exit");
+            System.out.print("Enter Choice: ");
+
+            choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+
+                case 1:
+                    if (!studentAdded) {
+                        System.out.print("Enter Student Name: ");
+                        studentName = sc.nextLine();
+
+                        System.out.print("Enter Roll Number: ");
+                        rollNo = sc.nextInt();
+
+                        studentAdded = true;
+
+                        System.out.println("Student Added Successfully!");
+                    } else {
+                        System.out.println("Student Already Added!");
+                    }
+                    break;
+
+                case 2:
+                    if (studentAdded) {
+                        System.out.print("Enter Fee Amount to Pay: ₹");
+                        double amount = sc.nextDouble();
+
+                        if (paidFee + amount <= totalFee) {
+                            paidFee += amount;
+                            System.out.println("Fee Paid Successfully!");
+                        } else {
+                            System.out.println("Amount exceeds total fee!");
+                        }
+                    } else {
+                        System.out.println("Add Student First!");
+                    }
+                    break;
+
+                case 3:
+                    if (studentAdded) {
+                        System.out.println("\n===== STUDENT DETAILS =====");
+                        System.out.println("Name          : " + studentName);
+                        System.out.println("Roll Number   : " + rollNo);
+                        System.out.println("Total Fee     : ₹" + totalFee);
+                        System.out.println("Paid Fee      : ₹" + paidFee);
+                    } else {
+                        System.out.println("No Student Record Found!");
+                    }
+                    break;
+
+                case 4:
+                    if (studentAdded) {
+                        System.out.println("Remaining Fee : ₹" + (totalFee - paidFee));
+                    } else {
+                        System.out.println("No Student Record Found!");
+                    }
+                    break;
+
+                case 5:
+                    System.out.println("Thank You!");
+                    break;
+
+                default:
+                    System.out.println("Invalid Choice!");
+            }
+
+        } while (choice != 5);
+
+        sc.close();
+    }
+}

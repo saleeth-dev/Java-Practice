@@ -1768,3 +1768,104 @@ public class CollegeFeeManagement {
         sc.close();
     }
 }
+import java.util.Scanner;
+
+public class GroceryStoreBilling {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String[] itemName = new String[20];
+        int[] quantity = new int[20];
+        double[] price = new double[20];
+
+        int count = 0;
+        int choice;
+
+        do {
+
+            System.out.println("\n===== GROCERY STORE BILLING =====");
+            System.out.println("1. Add Item");
+            System.out.println("2. View Cart");
+            System.out.println("3. Generate Bill");
+            System.out.println("4. Exit");
+            System.out.print("Enter Choice: ");
+
+            choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+
+                case 1:
+
+                    System.out.print("Enter Item Name: ");
+                    itemName[count] = sc.nextLine();
+
+                    System.out.print("Enter Quantity: ");
+                    quantity[count] = sc.nextInt();
+
+                    System.out.print("Enter Price per Item: ₹");
+                    price[count] = sc.nextDouble();
+
+                    count++;
+
+                    System.out.println("Item Added Successfully!");
+                    break;
+
+                case 2:
+
+                    if (count == 0) {
+                        System.out.println("Cart is Empty.");
+                    } else {
+
+                        System.out.println("\n===== CART ITEMS =====");
+
+                        for (int i = 0; i < count; i++) {
+                            System.out.println((i + 1) + ". " + itemName[i]);
+                            System.out.println("Quantity : " + quantity[i]);
+                            System.out.println("Price    : ₹" + price[i]);
+                            System.out.println("-------------------------");
+                        }
+                    }
+
+                    break;
+
+                case 3:
+
+                    double total = 0;
+
+                    for (int i = 0; i < count; i++) {
+                        total += quantity[i] * price[i];
+                    }
+
+                    double discount = 0;
+
+                    if (total > 2000) {
+                        discount = total * 0.05;
+                    }
+
+                    double finalBill = total - discount;
+
+                    System.out.println("\n===== BILL =====");
+                    System.out.println("Total Amount : ₹" + total);
+                    System.out.println("Discount     : ₹" + discount);
+                    System.out.println("Final Bill   : ₹" + finalBill);
+
+                    break;
+
+                case 4:
+
+                    System.out.println("Thank You for Shopping!");
+                    break;
+
+                default:
+
+                    System.out.println("Invalid Choice!");
+            }
+
+        } while (choice != 4);
+
+        sc.close();
+    }
+}

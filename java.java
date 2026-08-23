@@ -3390,3 +3390,119 @@ public class CourierManagementSystem {
         sc.close();
     }
 }
+
+import java.util.Scanner;
+
+public class BookInventoryManagement {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String[] bookName = new String[20];
+        int[] quantity = new int[20];
+
+        int count = 0;
+        int choice;
+
+        do {
+
+            System.out.println("\n===== BOOK INVENTORY MANAGEMENT =====");
+            System.out.println("1. Add Book");
+            System.out.println("2. View Books");
+            System.out.println("3. Search Book");
+            System.out.println("4. Sell Book");
+            System.out.println("5. Exit");
+            System.out.print("Enter Choice: ");
+
+            choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+
+                case 1:
+                    System.out.print("Enter Book Name: ");
+                    bookName[count] = sc.nextLine();
+
+                    System.out.print("Enter Quantity: ");
+                    quantity[count] = sc.nextInt();
+
+                    count++;
+                    System.out.println("Book Added Successfully!");
+                    break;
+
+                case 2:
+                    if (count == 0) {
+                        System.out.println("No Books Available.");
+                    } else {
+                        System.out.println("\n===== BOOK LIST =====");
+                        for (int i = 0; i < count; i++) {
+                            System.out.println("Book: " + bookName[i]);
+                            System.out.println("Quantity: " + quantity[i]);
+                            System.out.println("----------------------");
+                        }
+                    }
+                    break;
+
+                case 3:
+                    System.out.print("Enter Book Name: ");
+                    String search = sc.nextLine();
+
+                    boolean found = false;
+
+                    for (int i = 0; i < count; i++) {
+                        if (bookName[i].equalsIgnoreCase(search)) {
+                            System.out.println("Book Found!");
+                            System.out.println("Book: " + bookName[i]);
+                            System.out.println("Quantity: " + quantity[i]);
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found) {
+                        System.out.println("Book Not Found!");
+                    }
+                    break;
+
+                case 4:
+                    System.out.print("Enter Book Name: ");
+                    String sell = sc.nextLine();
+
+                    boolean sold = false;
+
+                    for (int i = 0; i < count; i++) {
+                        if (bookName[i].equalsIgnoreCase(sell)) {
+
+                            if (quantity[i] > 0) {
+                                quantity[i]--;
+                                System.out.println("Book Sold Successfully!");
+                            } else {
+                                System.out.println("Out of Stock!");
+                            }
+
+                            sold = true;
+                            break;
+                        }
+                    }
+
+                    if (!sold) {
+                        System.out.println("Book Not Found!");
+                    }
+
+                    break;
+
+                case 5:
+                    System.out.println("Thank You!");
+                    break;
+
+                default:
+                    System.out.println("Invalid Choice!");
+            }
+
+        } while (choice != 5);
+
+        sc.close();
+    }
+}
+            

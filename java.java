@@ -3620,3 +3620,133 @@ public class BookInventoryManagement {
         sc.close();
     }
 }
+
+  import java.util.Scanner;
+
+public class EmployeeManagementSystem {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int[] empId = new int[20];
+        String[] empName = new String[20];
+        double[] salary = new double[20];
+
+        int count = 0;
+        int choice;
+
+        do {
+
+            System.out.println("\n===== EMPLOYEE MANAGEMENT SYSTEM =====");
+            System.out.println("1. Add Employee");
+            System.out.println("2. View Employees");
+            System.out.println("3. Search Employee");
+            System.out.println("4. Update Salary");
+            System.out.println("5. Exit");
+            System.out.print("Enter Choice: ");
+
+            choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+
+                case 1:
+
+                    System.out.print("Enter Employee ID: ");
+                    empId[count] = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.print("Enter Employee Name: ");
+                    empName[count] = sc.nextLine();
+
+                    System.out.print("Enter Salary: ");
+                    salary[count] = sc.nextDouble();
+
+                    count++;
+
+                    System.out.println("Employee Added Successfully!");
+                    break;
+
+                case 2:
+
+                    if (count == 0) {
+                        System.out.println("No Employees Found.");
+                    } else {
+                        for (int i = 0; i < count; i++) {
+                            System.out.println("-----------------------");
+                            System.out.println("ID     : " + empId[i]);
+                            System.out.println("Name   : " + empName[i]);
+                            System.out.println("Salary : ₹" + salary[i]);
+                        }
+                    }
+                    break;
+
+                case 3:
+
+                    System.out.print("Enter Employee ID: ");
+                    int searchId = sc.nextInt();
+
+                    boolean found = false;
+
+                    for (int i = 0; i < count; i++) {
+
+                        if (empId[i] == searchId) {
+
+                            System.out.println("Employee Found");
+                            System.out.println("Name   : " + empName[i]);
+                            System.out.println("Salary : ₹" + salary[i]);
+
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found) {
+                        System.out.println("Employee Not Found!");
+                    }
+
+                    break;
+
+                case 4:
+
+                    System.out.print("Enter Employee ID: ");
+                    int updateId = sc.nextInt();
+
+                    boolean updated = false;
+
+                    for (int i = 0; i < count; i++) {
+
+                        if (empId[i] == updateId) {
+
+                            System.out.print("Enter New Salary: ");
+                            salary[i] = sc.nextDouble();
+
+                            System.out.println("Salary Updated Successfully!");
+
+                            updated = true;
+                            break;
+                        }
+                    }
+
+                    if (!updated) {
+                        System.out.println("Employee Not Found!");
+                    }
+
+                    break;
+
+                case 5:
+
+                    System.out.println("Thank You!");
+                    break;
+
+                default:
+
+                    System.out.println("Invalid Choice!");
+            }
+
+        } while (choice != 5);
+
+        sc.close();
+    }
+}          
